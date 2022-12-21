@@ -1,0 +1,102 @@
+1) Посмотреть где я
+  pwd
+2) Создать папку
+  mkdir papka
+3) Зайти в папку
+  cd papka
+4) Создать 3 папки
+  mkdir new1 new2 new3
+5) Зайти в любоую папку
+  cd new1
+6) Создать 5 файлов (3 txt, 2 json)
+  touch {faile1.txt,faile2.txt,faile3.txt,faile1.json,faile2.json}
+
+7) Создать 3 папки
+  mkdir papka1 papka2 papka3
+
+8. Вывести список содержимого папки
+  ls
+  ls -la (расширенный вывод всех файлов)
+
+9) Открыть любой txt файл
+  vim faile1.txt
+ 
+10) Написать туда что-нибудь, любой текст.
+  i- переход в режим редактирования
+  name Andrey
+  surname Markevich
+  age 28
+
+11) Сохранить и выйти.
+  Esc - выйти из режима редактирования 
+  :wq - сохранить и выйти из vim
+12) Выйти из папки на уровень выше
+  cd ..
+  cd ../.. (выйти на 2 уровня выше)
+
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку.
+  mv new1/{faile1.json,faile2.txt} new1/papka1
+  
+14) Скопировать любые 2 файла, которые вы создали, в любую другую папку.
+  cp new1/{faile1.txt,faile3.txt} new1/papka2
+
+15) Найти файл по имени
+  find . -name "faile2.txt"
+   
+16) Просмотреть содержимое в реальном времени
+  tail -f faile1.txt | grep Andrey - поиск строки в данном файле
+  grep Andrey ./* - показывает название файла в котором встречаеться Andrey  
+  
+17) Вывести несколько первых строк из текстового файла
+  head -2 faile1.txt
+  
+18) Вывести несколько последних строк из текстового файла
+  tail -2 faile1.txt
+
+19) Просмотреть содержимое длинного файла.
+  less faile1.txt
+  q - выйти из режима просмотра
+  
+20) Вывести дату и время
+  date
+
+
+Задание*
+1) Отправить http запрос на сервер. http://162.55.220.72:5006/terminal-hw-request
+ curl "http://162.55.220.72:5006/terminal-hw-request"
+
+Получаем ответ: 
+
+"Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5006/get_method?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+
+Выполнение Task_1
+   curl http://162.55.220.72:5006/get_method?name=(set_your_String)&age=(set_your_number)"
+   Вместо (set_your_String) пишем имя, вместо (set_your_number) пишем возраст. Не забывая про "".
+
+   curl http://162.55.220.72:5006/get_method?name="Andrey&age=28"
+   Ответ ["Андрей","28"]
+
+2) Написать скрипт который выполнит автоматически пункты 2, 3, 4, 5, 6, 7, 8, 13
+
+  $ cat > script.sh
+  #!/bin/bash
+  pwd
+  mkdir papka
+  cd papka
+  mkdir new1 new2 new3
+  cd new1
+  touch {faile1.txt,faile2.txt,faile3.txt,faile1.json,faile2.json}
+  mkdir papka1 papka2 papka3
+  ls -la
+  mv faile1.json faile2.txt papka1
+  chmod +x script.sh
+  ./script.sh
+  
+
+
+   
